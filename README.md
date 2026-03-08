@@ -4,11 +4,11 @@
 
 重庆工商大学汽车人协会网站包含三个站点:
 
-| 站点       | 目录路径    | 技术栈                 | 部署地址                                                   | 内容类型                       |
-| ---------- | ----------- | ---------------------- | ---------------------------------------------------------- | ------------------------------ |
-| **主站**   | `apps/home` | Astro + Mizuki         | [https://www.autobot5.site](https://www.autobot5.site)     | 协会介绍、新闻、博客、视觉展示 |
-| **文档站** | `apps/docs` | VuePress + Theme Plume | [https://docs.autobot5.site](https://docs.autobot5.site)   | 教程、项目说明                 |
-| **资源站** | 独立项目    | OpenList               | [https://cloud.autobot5.site](https://cloud.autobot5.site) | 资料下载、网盘整合             |
+| 站点       | 目录路径    | 技术栈                                                       | 部署地址                                                   | 内容类型                       |
+| ---------- | ----------- | ------------------------------------------------------------ | ---------------------------------------------------------- | ------------------------------ |
+| **主站**   | `apps/home` | Astro + [Mizuki](https://github.com/matsuzaka-yuki/Mizuki)   | [https://www.autobot5.site](https://www.autobot5.site)     | 协会介绍、新闻、博客、视觉展示 |
+| **文档站** | `apps/docs` | VuePress + [Theme Plume](https://github.com/pengzhanbo/vuepress-theme-plume) | [https://docs.autobot5.site](https://docs.autobot5.site)   | 教程、项目说明                 |
+| **资源站** | 独立项目    | [OpenList](https://github.com/OpenListTeam/OpenList)         | [https://cloud.autobot5.site](https://cloud.autobot5.site) | 资料下载、网盘整合             |
 
 ## 目录结构与职责
 

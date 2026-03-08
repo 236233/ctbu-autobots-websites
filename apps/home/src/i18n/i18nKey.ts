@@ -5,11 +5,18 @@ enum I18nKey {
 	search = "search",
 	other = "other",
 
+	// 导航栏标题
+	navLinks = "navLinks",
+	navMy = "navMy",
+	navAbout = "navAbout",
+	navOthers = "navOthers",
+
 	tags = "tags",
 	categories = "categories",
 	recentPosts = "recentPosts",
 	postList = "postList",
 	tableOfContents = "tableOfContents",
+	tocEmpty = "tocEmpty",
 
 	// 公告栏
 	announcement = "announcement",
@@ -40,6 +47,14 @@ enum I18nKey {
 	publishedAt = "publishedAt",
 	license = "license",
 	friends = "friends",
+	friendsSubtitle = "friendsSubtitle",
+	friendsSearchPlaceholder = "friendsSearchPlaceholder",
+	friendsFilterAll = "friendsFilterAll",
+	friendsNoResults = "friendsNoResults",
+	friendsVisit = "friendsVisit",
+	friendsCopyLink = "friendsCopyLink",
+	friendsCopySuccess = "friendsCopySuccess",
+	friendsTags = "friendsTags",
 	anime = "anime",
 	diary = "diary",
 
@@ -56,12 +71,14 @@ enum I18nKey {
 	animeStudio = "animeStudio",
 	animeEmpty = "animeEmpty",
 	animeEmptyBangumi = "animeEmptyBangumi",
+	animeEmptyBilibili = "animeEmptyBilibili",
 	animeEmptyLocal = "animeEmptyLocal",
+	animeConfigBilibili = "animeConfigBilibili",
+	animeConfigBangumi = "animeConfigBangumi",
 
 	// 短文页面
 	diarySubtitle = "diarySubtitle",
 	diaryCount = "diaryCount",
-	diaryImage = "diaryImage",
 	diaryReply = "diaryReply",
 	diaryTips = "diaryTips",
 	diaryMinutesAgo = "diaryMinutesAgo",
@@ -75,7 +92,28 @@ enum I18nKey {
 	backToHome = "backToHome",
 
 	// 音乐播放器
-	playlist = "playlist",
+	musicPlayer = "musicPlayer",
+	musicPlayerShow = "musicPlayerShow",
+	musicPlayerHide = "musicPlayerHide",
+	musicPlayerExpand = "musicPlayerExpand",
+	musicPlayerCollapse = "musicPlayerCollapse",
+	musicPlayerPause = "musicPlayerPause",
+	musicPlayerPlay = "musicPlayerPlay",
+	musicPlayerPrevious = "musicPlayerPrevious",
+	musicPlayerNext = "musicPlayerNext",
+	musicPlayerShuffle = "musicPlayerShuffle",
+	musicPlayerRepeat = "musicPlayerRepeat",
+	musicPlayerRepeatOne = "musicPlayerRepeatOne",
+	musicPlayerVolume = "musicPlayerVolume",
+	musicPlayerProgress = "musicPlayerProgress",
+	musicPlayerCover = "musicPlayerCover",
+	musicPlayerPlaylist = "musicPlayerPlaylist",
+	musicPlayerLoading = "musicPlayerLoading",
+	musicPlayerErrorPlaylist = "musicPlayerErrorPlaylist",
+	musicPlayerErrorSong = "musicPlayerErrorSong",
+	musicPlayerErrorEmpty = "musicPlayerErrorEmpty",
+	unknownSong = "unknownSong",
+	unknownArtist = "unknownArtist",
 
 	// 相册页面
 	albums = "albums",
@@ -85,6 +123,11 @@ enum I18nKey {
 	albumsBackToList = "albumsBackToList",
 	albumsPhotoCount = "albumsPhotoCount",
 	albumsPhotosCount = "albumsPhotosCount",
+
+	// 设备页面
+	devices = "devices",
+	devicesSubtitle = "devicesSubtitle",
+	devicesViewDetails = "devicesViewDetails",
 
 	// 项目展示页面
 	projects = "projects",
@@ -225,6 +268,67 @@ enum I18nKey {
 	atomHowToUse = "atomHowToUse",
 	atomCopied = "atomCopied",
 	atomCopyFailed = "atomCopyFailed",
+
+	// Wallpaper mode
+	wallpaperBanner = "wallpaperBanner",
+	wallpaperFullscreen = "wallpaperFullscreen",
+	wallpaperNone = "wallpaperNone",
+
+	// 站点统计
+	siteStats = "siteStats",
+	siteStatsPostCount = "siteStatsPostCount",
+	siteStatsCategoryCount = "siteStatsCategoryCount",
+	siteStatsTagCount = "siteStatsTagCount",
+	siteStatsTotalWords = "siteStatsTotalWords",
+	siteStatsRunningDays = "siteStatsRunningDays",
+	siteStatsLastUpdate = "siteStatsLastUpdate",
+	siteStatsDaysAgo = "siteStatsDaysAgo",
+	siteStatsDays = "siteStatsDays",
+
+	// 日历组件
+	calendarSunday = "calendarSunday",
+	calendarMonday = "calendarMonday",
+	calendarTuesday = "calendarTuesday",
+	calendarWednesday = "calendarWednesday",
+	calendarThursday = "calendarThursday",
+	calendarFriday = "calendarFriday",
+	calendarSaturday = "calendarSaturday",
+	calendarJanuary = "calendarJanuary",
+	calendarFebruary = "calendarFebruary",
+	calendarMarch = "calendarMarch",
+	calendarApril = "calendarApril",
+	calendarMay = "calendarMay",
+	calendarJune = "calendarJune",
+	calendarJuly = "calendarJuly",
+	calendarAugust = "calendarAugust",
+	calendarSeptember = "calendarSeptember",
+	calendarOctober = "calendarOctober",
+	calendarNovember = "calendarNovember",
+	calendarDecember = "calendarDecember",
+
+	// 分享功能
+	shareArticle = "shareArticle",
+	generatingPoster = "generatingPoster",
+	copied = "copied",
+	copyLink = "copyLink",
+	savePoster = "savePoster",
+	scanToRead = "scanToRead",
+	shareOnSocial = "shareOnSocial",
+	shareOnSocialDescription = "shareOnSocialDescription",
+
+	// 个人资料统计
+	profileStatsLoading = "profileStatsLoading",
+	profileStatsPageViews = "profileStatsPageViews",
+	profileStatsVisits = "profileStatsVisits",
+	profileStatsUnavailable = "profileStatsUnavailable",
+
+	// 页面访问量统计
+	pageViewsLoading = "pageViewsLoading",
+	pageViewsUnavailable = "pageViewsUnavailable",
+
+	// 布局切换按钮
+	switchToGridMode = "switchToGridMode",
+	switchToListMode = "switchToListMode",
 }
 
 export default I18nKey;

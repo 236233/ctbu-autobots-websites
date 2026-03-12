@@ -12,7 +12,7 @@
 
 ## 目录结构与职责
 
-本项目采用**单分支多目录架构**，所有代码统一管理在`main`分支:
+本项目采用**双分支多目录架构**，所有代码统一管理在`main`分支:
 
 ```mermaid
 graph TD
@@ -32,13 +32,19 @@ graph TD
 
 ## 贡献流程
 
+### 0. 快速开始（新贡献者必看）
+
+1. Fork 仓库 → 2. 克隆到本地 → 3. `pnpm install` → 4. 修改文件 → 5. `pnpm dev` 预览 → 6. 提交 PR
+
+仅修改文章内容：只需关注 `apps/home/src/content/posts/` 或 `apps/docs/docs/`
+
 ### 1. 确定修改内容所属目录
 
 参考下表确定您的内容应修改哪个目录:
 
 | 内容类型      | 目录路径     | 具体位置            | 示例内容           |
 | ------------- | ------------ | ------------------- | ------------------ |
-| 主页文章      | `apps/home/` | `src/content/posts` | 主页新闻、公告     |
+| 主页文章      | `apps/home/` | `src/content/posts` | 主站新闻、公告     |
 | 其他页面      | `apps/home/` | `src/content/spec`  | 关于我们、免责声明 |
 | 图片/媒体资源 | `apps/home/` | `public/images`     | 活动图片、宣传照片 |
 | 项目文档      | `apps/docs/` | `docs`              | ROS 教学文档       |
@@ -53,7 +59,7 @@ graph TD
     ```bash
     # 将 YOUR_USERNAME 替换为您的 GitHub 用户名
     git clone https://github.com/YOUR_USERNAME/ctbu-autobots-websites.git
-    cd website
+    cd ctbu-autobots-websites
     # 确保获取到 dev 分支（通常 clone 会获取所有分支，但可以明确 fetch）
     git fetch origin
     ```
@@ -68,6 +74,7 @@ graph TD
     ```
 
 4.  **环境准备**:
+    
     ##### 系统要求
     ```bash
     # 必须满足以下版本要求
@@ -79,7 +86,7 @@ graph TD
     ```bash
     # 检查 Node.js 和 npm 版本
     node -v  # 应显示 v20.x.x 或更高
-    npm -v   # 应显示 9.x.x 或更高
+    pnpm -v   # 应显示 9.x.x 或更高
     
     # 安装 pnpm（如未安装）
     npm install -g pnpm
@@ -90,7 +97,7 @@ graph TD
     # 检查 Git 版本
     git --version  # 应显示 2.30.0 或更高
     ```
-
+    
 5.  **安装依赖**:
     ```bash
     # 安装根级依赖（包含 pnpm 工作区配置）
@@ -154,16 +161,25 @@ graph TD
     # 例如: git commit -m "post(home): 添加2025年校长荣誉奖新闻"
     ```
     
+    *「本项目扩展了标准提交类型，新增 `post` 用于内容发布」*。
+    
     **types** 允许类型：
         `post`     # 发布文章
-        `feat`     # 新功能
-        `fix`      # 问题修复
-        `style`    # 代码样式
-        `chore`    # 杂项任务
+    
+    ​    `feat`     # 新功能
+    
+    ​    `fix`      # 问题修复
+    
+    ​    `style`    # 代码样式
+    
+    ​    `chore`    # 杂项任务
+    
     **scopes** 允许类型：
         `home`     # 主站内容
-        `docs`     # 文档内容
-        `config`   # 配置文件
+    
+    ​    `docs`     # 文档站内容
+    
+    ​    `config`   # 配置文件
 
 ### 6. 创建 Pull Request (PR)
 
@@ -173,7 +189,7 @@ graph TD
     *   **标题 (Title)**: `类型(范围): 简要描述`
         *   正确示例:
             *   `post(home): 添加2025年校长荣誉奖新闻`
-            *   `fix(docs): 修复文档配置错误`
+            *   `fix(docs): 修复文档站配置错误`
         *   错误示例: `update files`, `fix bug`
     *   **描述 (Description)**: 详细说明您所做的更改及其原因。
 5.  **提交 PR**。
@@ -193,9 +209,9 @@ graph TD
 
 - **文件路径**: `apps/home/src/content/posts/`
 
-- 文件名格式: `YYYY-MM-DD.md`
+- 文件名格式: `YYYY-MM-DD-slug.md`
 
-  - 示例: `2024-12-17.md`
+  - 示例: `2024-12-17-president-award.md`
 
 - 包含Frontmatter元数据:
 
@@ -217,7 +233,7 @@ graph TD
   ---
   ```
 
-### 2. 技术文档规范 (apps/docs)
+### 2. 技术文档站规范 (apps/docs)
 
 - 使用Markdown编写，文件扩展名为`.md`
 
@@ -286,6 +302,7 @@ sequenceDiagram
   - **文档站预览**: `https://pr-{number}--autobot-docs.pages.dev`
 - 预览链接会在PR评论中**自动提供**
 - 预览环境通常在2-3分钟内可用
+- {number} 为 PR 编号，合并后预览链接自动失效
 
 ## 常见问题解决
 
@@ -325,8 +342,14 @@ sequenceDiagram
 4. 重新安装依赖:
 
    ```bash
+   # 方案1：使用 pnpm 内置命令
+   pnpm clean
+   
+   # 方案2：分平台
+   # macOS/Linux:
    rm -rf node_modules
-   pnpm install --force
+   # Windows PowerShell:
+   Remove-Item -Recurse -Force node_modules
    ```
 
 ## 联系我们

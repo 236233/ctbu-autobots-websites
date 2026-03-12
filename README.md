@@ -32,13 +32,19 @@ graph TD
 
 ## 贡献流程
 
+### 0. 快速开始（新贡献者必看）
+
+1. Fork 仓库 → 2. 克隆到本地 → 3. `pnpm install` → 4. 修改文件 → 5. `pnpm dev` 预览 → 6. 提交 PR
+
+仅修改文章内容：只需关注 `apps/home/src/content/posts/` 或 `apps/docs/docs/`
+
 ### 1. 确定修改内容所属目录
 
 参考下表确定您的内容应修改哪个目录:
 
 | 内容类型      | 目录路径     | 具体位置            | 示例内容           |
 | ------------- | ------------ | ------------------- | ------------------ |
-| 主页文章      | `apps/home/` | `src/content/posts` | 主页新闻、公告     |
+| 主页文章      | `apps/home/` | `src/content/posts` | 主站新闻、公告     |
 | 其他页面      | `apps/home/` | `src/content/spec`  | 关于我们、免责声明 |
 | 图片/媒体资源 | `apps/home/` | `public/images`     | 活动图片、宣传照片 |
 | 项目文档      | `apps/docs/` | `docs`              | ROS 教学文档       |
@@ -159,14 +165,21 @@ graph TD
     
     **types** 允许类型：
         `post`     # 发布文章
-        `feat`     # 新功能
-        `fix`      # 问题修复
-        `style`    # 代码样式
-        `chore`    # 杂项任务
+    
+    ​    `feat`     # 新功能
+    
+    ​    `fix`      # 问题修复
+    
+    ​    `style`    # 代码样式
+    
+    ​    `chore`    # 杂项任务
+    
     **scopes** 允许类型：
         `home`     # 主站内容
-        `docs`     # 文档内容
-        `config`   # 配置文件
+    
+    ​    `docs`     # 文档站内容
+    
+    ​    `config`   # 配置文件
 
 ### 6. 创建 Pull Request (PR)
 
@@ -176,7 +189,7 @@ graph TD
     *   **标题 (Title)**: `类型(范围): 简要描述`
         *   正确示例:
             *   `post(home): 添加2025年校长荣誉奖新闻`
-            *   `fix(docs): 修复文档配置错误`
+            *   `fix(docs): 修复文档站配置错误`
         *   错误示例: `update files`, `fix bug`
     *   **描述 (Description)**: 详细说明您所做的更改及其原因。
 5.  **提交 PR**。
@@ -196,9 +209,9 @@ graph TD
 
 - **文件路径**: `apps/home/src/content/posts/`
 
-- 文件名格式: `YYYY-MM-DD.md`
+- 文件名格式: `YYYY-MM-DD-slug.md`
 
-  - 示例: `2024-12-17.md`
+  - 示例: `2024-12-17-president-award.md`
 
 - 包含Frontmatter元数据:
 
@@ -220,7 +233,7 @@ graph TD
   ---
   ```
 
-### 2. 技术文档规范 (apps/docs)
+### 2. 技术文档站规范 (apps/docs)
 
 - 使用Markdown编写，文件扩展名为`.md`
 

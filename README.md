@@ -12,7 +12,7 @@
 
 ## 目录结构与职责
 
-本项目采用**单分支多目录架构**，所有代码统一管理在`main`分支:
+本项目采用**双分支多目录架构**，所有代码统一管理在`main`分支:
 
 ```mermaid
 graph TD
@@ -53,7 +53,7 @@ graph TD
     ```bash
     # 将 YOUR_USERNAME 替换为您的 GitHub 用户名
     git clone https://github.com/YOUR_USERNAME/ctbu-autobots-websites.git
-    cd website
+    cd ctbu-autobots-websites
     # 确保获取到 dev 分支（通常 clone 会获取所有分支，但可以明确 fetch）
     git fetch origin
     ```
@@ -68,6 +68,7 @@ graph TD
     ```
 
 4.  **环境准备**:
+    
     ##### 系统要求
     ```bash
     # 必须满足以下版本要求
@@ -79,7 +80,7 @@ graph TD
     ```bash
     # 检查 Node.js 和 npm 版本
     node -v  # 应显示 v20.x.x 或更高
-    npm -v   # 应显示 9.x.x 或更高
+    pnpm -v   # 应显示 9.x.x 或更高
     
     # 安装 pnpm（如未安装）
     npm install -g pnpm
@@ -90,7 +91,7 @@ graph TD
     # 检查 Git 版本
     git --version  # 应显示 2.30.0 或更高
     ```
-
+    
 5.  **安装依赖**:
     ```bash
     # 安装根级依赖（包含 pnpm 工作区配置）
@@ -153,6 +154,8 @@ graph TD
     git commit -m "type(scope): 简要描述更改"
     # 例如: git commit -m "post(home): 添加2025年校长荣誉奖新闻"
     ```
+    
+    *「本项目扩展了标准提交类型，新增 `post` 用于内容发布」*。
     
     **types** 允许类型：
         `post`     # 发布文章
@@ -286,6 +289,7 @@ sequenceDiagram
   - **文档站预览**: `https://pr-{number}--autobot-docs.pages.dev`
 - 预览链接会在PR评论中**自动提供**
 - 预览环境通常在2-3分钟内可用
+- {number} 为 PR 编号，合并后预览链接自动失效
 
 ## 常见问题解决
 
@@ -325,8 +329,14 @@ sequenceDiagram
 4. 重新安装依赖:
 
    ```bash
+   # 方案1：使用 pnpm 内置命令
+   pnpm clean
+   
+   # 方案2：分平台
+   # macOS/Linux:
    rm -rf node_modules
-   pnpm install --force
+   # Windows PowerShell:
+   Remove-Item -Recurse -Force node_modules
    ```
 
 ## 联系我们

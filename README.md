@@ -102,6 +102,7 @@ gitGraph
    ```
 
 3. **设置上游仓库 (Upstream)**:
+
    *   为了能同步原始仓库的更新，需要将原始仓库添加为上游 (upstream)。
    ```bash
    git remote add upstream https://github.com/CTBU-AUTOBOTS/ctbu-autobots-websites.git
@@ -221,21 +222,21 @@ gitGraph
     # 例如: git commit -m "post(home): 添加2025年校长荣誉奖新闻"
     ```
     
-    *「本项目扩展了标准提交类型，新增 `post` 用于内容发布」*。
-    
     **允许的类型（type）**：
+    
     - `post` - 发布文章内容
     - `feat` - 新增功能
     - `fix` - 问题修复
-    - `style` - 代码样式调整（不影响逻辑）
+    - `style` - 代码样式调整
     - `chore` - 构建/工具链变更
     
     **允许的类型（scopes）**：
-        `home`     # 主站内容
     
-    ​    `docs`     # 文档站内容
+    - `home` - 主站内容
     
-    ​    `config`   # 配置文件
+    - `docs`  - 文档站内容
+    
+    - `config` - 配置文件
 
 ### 6. 创建 Pull Request (PR)
 

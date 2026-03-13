@@ -1,29 +1,27 @@
 # CTBU-AUTOBOTS 汽车人协会网站
 
+![Node Version](https://img.shields.io/badge/Node.js-%3E=20.6.0-brightgreen)
+![PNPM](https://img.shields.io/badge/pnpm-%3E=9.0.0-yellow)
+![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-blue)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)](./CONTRIBUTING.md)
+
 ## 项目概览
 
 重庆工商大学汽车人协会网站包含三个站点:
 
-| 站点       | 目录路径    | 技术栈                                                       | 部署地址                                                   | 内容类型                       |
+| 站点       | 工作目录    | 技术栈                                                       | 部署地址                                                   | 内容类型                       |
 | ---------- | ----------- | ------------------------------------------------------------ | ---------------------------------------------------------- | ------------------------------ |
 | **主站**   | `apps/home` | Astro + [Mizuki](https://github.com/matsuzaka-yuki/Mizuki)   | [https://www.autobot5.site](https://www.autobot5.site)     | 协会介绍、新闻、博客、视觉展示 |
 | **文档站** | `apps/docs` | VuePress + [Theme Plume](https://github.com/pengzhanbo/vuepress-theme-plume) | [https://docs.autobot5.site](https://docs.autobot5.site)   | 教程、项目说明                 |
 | **资源站** | 独立项目    | [OpenList](https://github.com/OpenListTeam/OpenList)         | [https://cloud.autobot5.site](https://cloud.autobot5.site) | 资料下载、网盘整合             |
 
-## 目录结构与职责
+## 结构与职责
 
-本项目采用**双分支多目录架构**，所有代码统一管理在`main`分支:
+本项目采用**双分支多目录架构**，生产环境部署在在`main`分支，开发测试在`dev`分支:
 
-```mermaid
-graph TD
-    main[main分支] --> apps[apps/]
-    apps --> home[home/<br/>Astro主站]
-    apps --> docs[docs/<br/>VuePress文档站]
-    main --> shared[shared/<br/>共享资源]
-    main --> .github[.github/<br/>CI/CD工作流]
-```
+![image-20260313195732596](.\README.assets\git-demo.png)
 
-### 目录职责明确
+### 职责明确
 
 - **`apps/home/` 目录**：协会主站、博客文章、新闻动态、视觉资源
 - **`apps/docs/` 目录**：技术文档、开发规范、教程、项目说明
@@ -36,7 +34,7 @@ graph TD
 
 1. Fork 仓库 → 2. 克隆到本地 → 3. `pnpm install` → 4. 修改文件 → 5. `pnpm dev` 预览 → 6. 提交 PR
 
-仅修改文章内容：只需关注 `apps/home/src/content/posts/` 或 `apps/docs/docs/`
+仅修改文章内容：只需关注 `apps/home/src/content/posts/` 或 `apps/docs/docs/`路径
 
 ### 1. 确定修改内容所属目录
 
@@ -44,68 +42,88 @@ graph TD
 
 | 内容类型      | 目录路径     | 具体位置            | 示例内容           |
 | ------------- | ------------ | ------------------- | ------------------ |
-| 主页文章      | `apps/home/` | `src/content/posts` | 主站新闻、公告     |
+| 主站文章      | `apps/home/` | `src/content/posts` | 主站新闻、公告     |
 | 其他页面      | `apps/home/` | `src/content/spec`  | 关于我们、免责声明 |
 | 图片/媒体资源 | `apps/home/` | `public/images`     | 活动图片、宣传照片 |
 | 项目文档      | `apps/docs/` | `docs`              | ROS 教学文档       |
 
 ### 2. Fork 仓库并设置本地环境
 
-1.  **Fork 仓库**:
-    *   访问 GitHub 上的原始仓库 `https://github.com/CTBU-AUTOBOTS/ctbu-autobots-websites.git`。
-    *   点击右上角的 "Fork" 按钮，将仓库复制到您的个人账户下。
+1. **Fork 仓库**:
+   *   访问 GitHub 上的原始仓库 `https://github.com/CTBU-AUTOBOTS/ctbu-autobots-websites.git`。
+   *   点击右上角的 "Fork" 按钮，将仓库复制到您的个人账户下。
 
-2.  **克隆您 Fork 的仓库 (包含 dev 分支)**:
-    ```bash
-    # 将 YOUR_USERNAME 替换为您的 GitHub 用户名
-    git clone https://github.com/YOUR_USERNAME/ctbu-autobots-websites.git
-    cd ctbu-autobots-websites
-    # 确保获取到 dev 分支（通常 clone 会获取所有分支，但可以明确 fetch）
-    git fetch origin
-    ```
+2. **克隆您 Fork 的仓库 (包含 dev 分支)**:
+   ```bash
+   # 将 YOUR_USERNAME 替换为您的 GitHub 用户名
+   git clone https://github.com/YOUR_USERNAME/ctbu-autobots-websites.git
+   cd ctbu-autobots-websites
+   # 确保获取到 dev 分支（通常 clone 会获取所有分支，但可以明确 fetch）
+   git fetch origin
+   ```
 
-3.  **设置上游仓库 (Upstream)**:
-    *   为了能同步原始仓库的更新，需要将原始仓库添加为上游 (upstream)。
-    ```bash
-    git remote add upstream https://github.com/CTBU-AUTOBOTS/ctbu-autobots-websites.git
-    # 验证远程仓库设置
-    git remote -v
-    # 应显示 origin (您的 Fork) 和 upstream (原始仓库)
-    ```
+3. **设置上游仓库 (Upstream)**:
 
-4.  **环境准备**:
-    
-    ##### 系统要求
-    ```bash
-    # 必须满足以下版本要求
-    Node.js >= 20.6.0
-    pnpm >= 9.0.0
-    Git >= 2.30.0
-    ```
-    ##### 验证和安装
-    ```bash
-    # 检查 Node.js 和 npm 版本
-    node -v  # 应显示 v20.x.x 或更高
-    pnpm -v   # 应显示 9.x.x 或更高
-    
-    # 安装 pnpm（如未安装）
-    npm install -g pnpm
-    
-    # 检查 pnpm 版本
-    pnpm -v  # 应显示 9.x.x 或更高
-    
-    # 检查 Git 版本
-    git --version  # 应显示 2.30.0 或更高
-    ```
-    
-5.  **安装依赖**:
-    ```bash
-    # 安装根级依赖（包含 pnpm 工作区配置）
-    pnpm install
-    
-    # 验证安装成功
-    pnpm -r list --depth=0
-    ```
+   *   为了能同步原始仓库的更新，需要将原始仓库添加为上游 (upstream)。
+   ```bash
+   git remote add upstream https://github.com/CTBU-AUTOBOTS/ctbu-autobots-websites.git
+   # 验证远程仓库设置
+   git remote -v
+   # 应显示 origin (您的 Fork) 和 upstream (原始仓库)
+   ```
+
+4. **环境准备**:
+
+   ##### 系统要求
+   ```bash
+   # 必须满足以下版本要求
+   Node.js >= 20.6.0
+   pnpm >= 9.0.0
+   Git >= 2.30.0
+   ```
+   ##### 验证和安装
+   ```bash
+   # 检查 Node.js 和 npm 版本
+   node -v
+   pnpm -v
+   
+   # 安装 pnpm（如未安装）
+   npm install -g pnpm
+   
+   # 检查 pnpm 版本
+   pnpm -v
+   
+   # 检查 Git 版本
+   git --version
+   ```
+
+5. **安装依赖**:
+
+   主站：
+
+   ```bash
+   # 进入到工作目录
+   cd apps/home
+   
+   # 安装根级依赖（包含 pnpm 工作区配置）
+   pnpm install
+   
+   # 验证安装成功
+   pnpm -r list --depth=0
+   ```
+
+   文档站：
+
+   ```bash
+   # 进入到工作目录
+   cd apps/docs
+   
+   # 安装根级依赖（包含 pnpm 工作区配置）
+   pnpm install
+   
+   # 验证安装成功
+   pnpm -r list --depth=0
+   ```
 
 ### 3. 同步 dev 分支并创建特性分支
 
@@ -140,6 +158,10 @@ graph TD
     pnpm docs:dev
     # 访问 http://localhost:8080
     ```
+    
+    > 修改后实时预览：
+    > - 保存 `.md` 文件后，浏览器会自动刷新
+    > - 如遇缓存问题，尝试 `Ctrl+Shift+R` 强制刷新
 
 ### 5. 提交并推送更改
 
@@ -161,25 +183,21 @@ graph TD
     # 例如: git commit -m "post(home): 添加2025年校长荣誉奖新闻"
     ```
     
-    *「本项目扩展了标准提交类型，新增 `post` 用于内容发布」*。
+    **允许的类型（type）**：
     
-    **types** 允许类型：
-        `post`     # 发布文章
+    - `post` - 发布文章内容
+    - `feat` - 新增功能
+    - `fix` - 问题修复
+    - `style` - 代码样式调整
+    - `chore` - 构建/工具链变更
     
-    ​    `feat`     # 新功能
+    **允许的类型（scopes）**：
     
-    ​    `fix`      # 问题修复
+    - `home` - 主站内容
     
-    ​    `style`    # 代码样式
+    - `docs`  - 文档站内容
     
-    ​    `chore`    # 杂项任务
-    
-    **scopes** 允许类型：
-        `home`     # 主站内容
-    
-    ​    `docs`     # 文档站内容
-    
-    ​    `config`   # 配置文件
+    - `config` - 配置文件
 
 ### 6. 创建 Pull Request (PR)
 
@@ -215,6 +233,37 @@ graph TD
 
 - 包含Frontmatter元数据:
 
+  #### 必需字段
+  
+  - `title`：文章标题（必需）
+  - `description`：文章描述（必需）
+  
+  #### 发布相关
+  
+  - `published`：文章发布日期，格式为YYYY-MM-DD
+  - `pubDate`：文章发布日期（与published类似）
+  - `date`：文章创建日期
+  - `draft`：是否为草稿，true表示草稿，false表示正式发布
+  - `permalink`: 固定链接
+  
+  #### 内容分类
+  
+  - `tags`：文章标签数组，用于标记文章主题
+  - `category`：文章分类，用于组织文章
+  - `pinned`：是否置顶文章，true表示置顶
+  
+  #### 作者信息
+  
+  - `author`：文章作者姓名
+  - `licenseName`：文章许可证名称，如"MIT"、"CC BY 4.0"等
+  - `sourceLink`：文章源链接，通常指向GitHub仓库或原始来源
+  
+  #### 图片设置
+  
+  - `image`：文章封面图片
+  
+  #### 示例
+  
   ```markdown
   ---
   title: 【新闻转载】恭喜我院汽车人协会荣获「校长荣誉奖」团队奖项
@@ -233,7 +282,7 @@ graph TD
   ---
   ```
 
-### 2. 技术文档站规范 (apps/docs)
+### 2. 文档站规范 (apps/docs)
 
 - 使用Markdown编写，文件扩展名为`.md`
 
@@ -243,6 +292,10 @@ graph TD
 
 - 文档包含Frontmatter元数据:
 
+  - `title`:：文章标题，根据文件名生成
+  - `createTime`： 文章创建时间，根据文件创建时间生成
+  - `permalink`：文章链接
+  
   ```markdown
   ---
   title: ROS 入门第一讲：Robot Operating System
@@ -316,7 +369,6 @@ sequenceDiagram
 
 - **文件位置错误**: 将更改移动到正确目录
 - **文件过大**: 上传到网盘，替换为链接
-- **格式问题**: 运行 `pnpm format` 自动修复
 - **构建失败**: 检查代码并重试
 
 ### 3. 本地开发环境搭建失败

@@ -15,50 +15,11 @@
 | **文档站** | `apps/docs` | VuePress + [Theme Plume](https://github.com/pengzhanbo/vuepress-theme-plume) | [https://docs.autobot5.site](https://docs.autobot5.site)   | 教程、项目说明                 |
 | **资源站** | 独立项目    | [OpenList](https://github.com/OpenListTeam/OpenList)         | [https://cloud.autobot5.site](https://cloud.autobot5.site) | 资料下载、网盘整合             |
 
-## 目录
-- [项目概览](#-项目概览)
-- [目录结构](#-目录结构与职责)
-- [贡献流程](#-贡献流程)
-- [内容规范](#-内容规范)
-- [部署预览](#-部署与预览)
-- [常见问题](#-常见问题解决)
-
 ## 结构与职责
 
 本项目采用**双分支多目录架构**，生产环境部署在在`main`分支，开发测试在`dev`分支:
 
-```mermaid
-gitGraph
-    commit id: "main" tag: "生产站点" type: HIGHLIGHT
-    
-    branch dev order: 1
-    checkout dev
-    commit id: "dev" tag: "预览环境" type: HIGHLIGHT
-    
-    %% 贡献者 A 流程
-    branch "贡献者1-fork" order: 2
-    checkout "贡献者1-fork"
-    commit id: "post: 新闻稿" type: NORMAL
-    commit id: "创建 PR #1" type: NORMAL
-    
-    checkout dev
-    merge "贡献者1-fork" tag: "合并审核通过" type: HIGHLIGHT
-    
-    %% 贡献者 B 流程
-    branch "贡献者2-fork" order: 3
-    checkout "贡献者2-fork"
-    commit id: "feat: 新功能" type: NORMAL
-    commit id: "创建 PR #2" type: NORMAL
-    
-    checkout dev
-    merge "贡献者2-fork" tag: "合并审核通过" type: HIGHLIGHT
-    
-    %% 维护者发布到 main
-    checkout main
-    merge dev tag: "管理员发布" type: HIGHLIGHT
-    
-
-```
+![image-20260313195732596](.\README.assets\git-demo.png)
 
 ### 职责明确
 
@@ -272,6 +233,37 @@ gitGraph
 
 - 包含Frontmatter元数据:
 
+  #### 必需字段
+  
+  - `title`：文章标题（必需）
+  - `description`：文章描述（必需）
+  
+  #### 发布相关
+  
+  - `published`：文章发布日期，格式为YYYY-MM-DD
+  - `pubDate`：文章发布日期（与published类似）
+  - `date`：文章创建日期
+  - `draft`：是否为草稿，true表示草稿，false表示正式发布
+  - `permalink`: 固定链接
+  
+  #### 内容分类
+  
+  - `tags`：文章标签数组，用于标记文章主题
+  - `category`：文章分类，用于组织文章
+  - `pinned`：是否置顶文章，true表示置顶
+  
+  #### 作者信息
+  
+  - `author`：文章作者姓名
+  - `licenseName`：文章许可证名称，如"MIT"、"CC BY 4.0"等
+  - `sourceLink`：文章源链接，通常指向GitHub仓库或原始来源
+  
+  #### 图片设置
+  
+  - `image`：文章封面图片
+  
+  #### 示例
+  
   ```markdown
   ---
   title: 【新闻转载】恭喜我院汽车人协会荣获「校长荣誉奖」团队奖项
@@ -300,6 +292,10 @@ gitGraph
 
 - 文档包含Frontmatter元数据:
 
+  - `title`:：文章标题，根据文件名生成
+  - `createTime`： 文章创建时间，根据文件创建时间生成
+  - `permalink`：文章链接
+  
   ```markdown
   ---
   title: ROS 入门第一讲：Robot Operating System

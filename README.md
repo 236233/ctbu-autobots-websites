@@ -19,7 +19,7 @@
 
 本项目采用**双分支多目录架构**，生产环境部署在在`main`分支，开发测试在`dev`分支:
 
-![image-20260313195732596](.\README.assets\git-demo.png)
+![image-20260313195732596](./README.assets/git-demo.png)
 
 ### 职责明确
 
